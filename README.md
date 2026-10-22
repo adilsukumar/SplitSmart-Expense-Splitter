@@ -4,17 +4,23 @@
 
 I built SplitSmart for the practical part of sharing a trip, a flat or a group plan: keeping track of who paid, how the bill is divided and what is still owed. Create a group, share its link and record expenses without a sign-up flow. Supabase stores the group records; the frontend calculates balances and offers a settlement list.
 
+<a id="what-i-built"></a>
+
 ## <img src="assets/readme/icon-people.svg" width="30" height="30" alt=""/> What I built
 
 <p><picture><source media="(max-width: 600px)" srcset="assets/readme/features-mobile.svg"/><img src="assets/readme/features.svg" width="100%" alt="Group links, equal/custom splits, balances and settlement tracking, plus Artificial Intelligence category suggestions and insights."/></picture></p>
 
 The interface includes expense history with category filters, deletion, category spending charts, payer rankings and settlement history. Groq supports category suggestions and generated spending insights; the financial calculations use the application’s JavaScript logic.
 
+<a id="from-bill-to-balance"></a>
+
 ## <img src="assets/readme/icon-receipt.svg" width="30" height="30" alt=""/> From bill to balance
 
 <p><picture><source media="(max-width: 600px)" srcset="assets/readme/workflow-mobile.svg"/><img src="assets/readme/workflow.svg" width="100%" alt="Create a group, log payer and participant shares, review the balances, then record a settlement."/></picture></p>
 
 Share the generated group link so others can open that group. The application has no authentication or membership-permission layer. Treat group records as demonstration data unless you add suitable access controls.
+
+<a id="how-the-balances-work"></a>
 
 ## <img src="assets/readme/icon-math.svg" width="30" height="30" alt=""/> How the balances work
 
@@ -29,6 +35,8 @@ The settlement list uses a greedy debtor/creditor matching algorithm. It simplif
 Expense descriptions are debounced before a Groq request suggests one of seven categories: Food, Travel, Rent, Entertainment, Shopping, Utilities or General. The response is normalized against that list, with General as the fallback. The configured model is `llama-3.3-70b-versatile`; actual access depends on your provider account.
 
 Supabase Realtime subscribes to the group’s **members, expenses and settlements** tables. Events trigger a fetch and re-render. The current code does not subscribe directly to all five schema tables, so changes to nested split rows alone may need a refresh.
+
+<a id="set-up-the-project"></a>
 
 ## <img src="assets/readme/icon-terminal.svg" width="30" height="30" alt=""/> Set up the project
 
@@ -105,6 +113,8 @@ Group data is stored in the configured Supabase project. Expense descriptions an
 
 The current source displays rupee amounts and has no multi-currency conversion layer. Authentication, CSV/PDF export, recurring expenses, notifications and a PWA remain future ideas in the original README. They are not presented here as completed features.
 
+<a id="screenshots-and-demo"></a>
+
 ## <img src="assets/readme/icon-docs.svg" width="30" height="30" alt=""/> Screenshots and demo
 
 [Open the existing live-app link](https://splitsmart-finance.vercel.app/) · [Watch the existing demo video](https://drive.google.com/file/d/1ofJDoJqaGJ4o9unK8us7brOEEajMSBbo/view?usp=sharing)
@@ -121,6 +131,8 @@ The current source displays rupee amounts and has no multi-currency conversion l
 <img src="https://github.com/user-attachments/assets/0914aedf-fdfd-4207-b811-dea824409067" width="100%" alt="Original SplitSmart application screenshot 4"/>
 
 </details>
+
+<a id="explore-the-source"></a>
 
 ## <img src="assets/readme/icon-code.svg" width="30" height="30" alt=""/> Explore the source
 
